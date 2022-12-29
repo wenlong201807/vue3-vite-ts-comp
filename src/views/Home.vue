@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>vue3 + typescript + vite2 + element-plus二次封装组件</h1>
+    <el-icon-edit />
   </div>
 </template>
 
