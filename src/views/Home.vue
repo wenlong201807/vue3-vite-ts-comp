@@ -2,10 +2,13 @@
   <div class="container">
     <h1>vue3 + typescript + vite2 + element-plus二次封装组件</h1>
     <el-icon-edit />
+    <h2>{{ title }}</h2>
   </div>
 </template>
 
 <script lang='ts' setup>
+import { ref } from 'vue'
+const title = ref(import.meta.env.VITE_APP_TITLE)
 </script>
 
 <style lang='scss' scoped>
