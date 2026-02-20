@@ -1,6 +1,7 @@
 # Jenkins CI/CD 自动化部署方案
 
 > 项目地址：git@github.com:wenlong201807/vue3-vite-ts-comp.git
+github的账号是github.com:wenlong201807 密码是Zwl6558315235
 > Jenkins 地址：http://23.94.103.190:8080
 > 目标服务器：23.94.103.190（Ubuntu 24.04 LTS）
 > 部署类型：Vue3 + Vite + TypeScript 前端项目
@@ -48,6 +49,22 @@
 ```
 
 ---
+**方式一：使用 rsync（推荐）**
+
+```bash
+# 在本地项目根目录执行[有效]
+rsync -avz --progress \
+  --exclude 'node_modules' \
+  --exclude '.git' \
+  --exclude '__pycache__' \
+  --exclude 'venv' \
+  --exclude '.venv' \
+  --exclude 'logs' \
+  --exclude '.idea' \
+  --exclude '.vscode' \
+  --exclude '.cursor' \
+  ./ root@23.94.103.190:/opt/webapps/vue3-comp/
+```
 
 ## 二、Jenkins 环境准备
 
@@ -75,8 +92,8 @@ http://23.94.103.190:8080/restart
 1. 进入 **Manage Jenkins** → **Tools**
 2. 找到 **NodeJS installations** → **Add NodeJS**
 3. 配置：
-   - Name: `NodeJS-18`
-   - Version: `NodeJS 18.x`（选择 18.20.x LTS）
+   - Name: `NodeJS-20`
+   - Version: `NodeJS 20.x`（选择 18.20.x LTS）
    - Global npm packages to install: `pnpm`
 4. **Save**
 
